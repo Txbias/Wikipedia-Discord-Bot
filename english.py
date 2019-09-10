@@ -17,16 +17,12 @@ async def on_message(message):
 def handle(text):
     awnser = ""
 
-    replacement1 = re.compile(re.escape("wer ist"), re.IGNORECASE)
-    replacement2 = re.compile(re.escape("informationen über"), re.IGNORECASE)
+    replacement1 = re.compile(re.escape("who is"), re.IGNORECASE)
+    replacement2 = re.compile(re.escape("informationen about"), re.IGNORECASE)
     replacement3 = re.compile(re.escape("?"), re.IGNORECASE)
-    replacement4 = re.compile(re.escape("bitte"), re.IGNORECASE)
-    replacement5 = re.compile(re.escape("suche"), re.IGNORECASE)
-    replacement6 = re.compile(re.escape("such"), re.IGNORECASE)
-
-    #text = text.replace(replacement1, "").replace(replacement2, "")
-    #text = text.replace(replacement3, "").replace(replacement4, "")
-    #text = replace(replacement5, "").replace(replacement6, "")
+    replacement4 = re.compile(re.escape("please"), re.IGNORECASE)
+    replacement5 = re.compile(re.escape("search"), re.IGNORECASE)
+    replacement6 = re.compile(re.escape("for"), re.IGNORECASE)
 
     text = replacement1.sub("", text)
     text = replacement2.sub("", text)
@@ -35,7 +31,7 @@ def handle(text):
     text = replacement5.sub("", text)
     text = replacement6.sub("", text)
 
-    link = "https://de.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + text
+    link = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + text
     try:
         f = requests.get(link)
         response = f.text
@@ -44,13 +40,11 @@ def handle(text):
         final = output[list(output.keys())[0]]["extract"]
         awnser = final
     except KeyError:
-        awnser = "Ich konnte dazu leider nichts finden."
+        awnser = "I'm sorry I couldn't find anything about that."
     except Exception:
-        awnser = "Wikipedia ist momentan nicht ereichbar."
+        awnser = "Wikipedia is currently not available."
 
     return awnser
 
 
-client.run("YOUR_TOKEN_HERE")
-
-
+client.run("YOUR_TOKEN_HERE") #Replace this
