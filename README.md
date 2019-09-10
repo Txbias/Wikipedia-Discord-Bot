@@ -1,8 +1,6 @@
 # Wikipedia-Discord-Bot
 A Discord bot for Wikipedia requests
 
-### English:  
-Add token at the bottom of the file and launch english.py.
-
-### German:  
-Add token at the bottom of the file and launch german.py.
+### Setup:  
+1. Add your token at the bottom of the file.
+2. Launch the file for your language.
