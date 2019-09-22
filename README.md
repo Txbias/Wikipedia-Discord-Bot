@@ -2,5 +2,5 @@
 A Discord bot for Wikipedia requests
 
 ### Setup:  
-1. Add your token at the bottom of the file.
+1. Change token in token.txt.
 2. Launch the file for your language.
