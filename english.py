@@ -46,5 +46,5 @@ def handle(text):
 
     return awnser
 
-
-client.run("YOUR_TOKEN_HERE") #Replace this
+token = open("token.txt")
+client.run("token") 
